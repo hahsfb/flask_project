@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 import requests
 import json
+import time
 from bs4 import BeautifulSoup
 from send_email import mail
 
@@ -72,14 +73,18 @@ def get_utf_8(req):
 
 
 if __name__ == '__main__':
-    with open('story.json', mode='r', encoding='utf-8')as f:
-        data = json.load(f)
-        for item in data.get('data'):
-            result = get_text(item.get('name'), item.get('domain_name'), item.get('url'), item.get('latest_chapter'))
-            if result:
-                item['latest_chapter'] = result
-        print(data)
+    while True:
+        with open('story.json', mode='r', encoding='utf-8')as f:
+            data = json.load(f)
+            for item in data.get('data'):
+                result = get_text(item.get('name'), item.get('domain_name'), item.get('url'), item.get('latest_chapter'))
+                if result:
+                    item['latest_chapter'] = result
+                print('%s 检查完毕' % item.get('name'))
+            print(data)
 
-    with open('story.json', mode='w', encoding='utf-8')as f:
-        f.write(json.dumps(data))
-    print("over")
+        with open('story.json', mode='w', encoding='utf-8')as f:
+            f.write(json.dumps(data))
+        print("全部检查完毕")
+        print("---" * 50)
+        time.sleep(10*60)
