@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 import requests
+import json
 from bs4 import BeautifulSoup
 from send_email import mail
 
@@ -19,8 +20,8 @@ header = {
 }
 
 
-def get_text(name, DOMAIN_NAME, story_addr, latest_chapter):
-    req = requests.get(url=DOMAIN_NAME + story_addr, headers=header)
+def get_text(name, domain_name, story_addr, latest_chapter):
+    req = requests.get(url=domain_name + story_addr, headers=header)
     encode_content = get_utf_8(req)
     new_latest_chapter = ''
     soup = BeautifulSoup(encode_content, 'html.parser')
@@ -34,9 +35,9 @@ def get_text(name, DOMAIN_NAME, story_addr, latest_chapter):
     if temp_list:
         for single in reversed(temp_list):
             # 1.获取url网页内容
-            content = text_detail(DOMAIN_NAME + single)
+            title, content = text_detail(domain_name + single)
             # 2.发送邮件
-            ret = mail(name, content)
+            ret = mail(name, title, content)
             # ret = True
             if ret:
                 new_latest_chapter = single
@@ -52,12 +53,12 @@ def text_detail(url):
     soup = BeautifulSoup(html, 'html.parser')
     for i in soup.select('.ReadAjax_content > p'):
         i.extract()
-    title = soup.find('span')
-    title = title.wrap(soup.new_tag("b"))
-    title = title.wrap(soup.new_tag("p"))
+    title = soup.find('span').text
+    # title = title.wrap(soup.new_tag("b"))
+    # title = title.wrap(soup.new_tag("p"))
     content = soup.find('div', 'ReadAjax_content')
-    content.insert(0, title)
-    return content
+    # content.insert(0, title)
+    return title, content
 
 
 def get_utf_8(req):
@@ -67,13 +68,10 @@ def get_utf_8(req):
             encoding = encodings[0]
         else:
             encoding = req.apparent_encoding
-
-        # encode_content = req.content.decode(encoding, 'replace').encode('utf-8', 'replace')
         return req.content.decode(encoding, 'replace')  # 如果设置为replace，则会用?取代非法字符；
 
 
 if __name__ == '__main__':
-    import json
     with open('story.json', mode='r', encoding='utf-8')as f:
         data = json.load(f)
         for item in data.get('data'):
