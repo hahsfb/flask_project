@@ -86,5 +86,5 @@ if __name__ == '__main__':
         with open('story.json', mode='w', encoding='utf-8')as f:
             f.write(json.dumps(data))
         print("全部检查完毕")
-        print("---" * 50)
+        print("---" * 20)
         time.sleep(10*60)
