@@ -74,6 +74,7 @@ def processbar3(total):
     pbar = ProgressBar(widgets=widgets, maxval=total).start()
     for i in range(total):
         # do something
+        time.sleep(1)
         pbar.update(i + 1)
         dosomework()
     pbar.finish()
