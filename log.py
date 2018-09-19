@@ -8,7 +8,7 @@ import os
 import time
 from logzero import logging, setup_logger
 
-LOGS_DIR = "./logData"
+LOGS_DIR = "./logData/"
 
 
 class log:
