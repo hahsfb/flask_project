@@ -10,7 +10,7 @@ import requests
 
 my_sender = 'haohsfb@126.com'  # 发件人邮箱账号
 my_pass = 'hao521912'  # 发件人邮箱密码
-my_user = 'haohsfb@126.com'  # 收件人邮箱账号，我这边发送给自己
+my_user = '1043033055@qq.com'  # 收件人邮箱账号，我这边发送给自己
 
 
 def mail(name, title, content):

@@ -5,6 +5,8 @@ import json
 import time
 from bs4 import BeautifulSoup
 from send_email import mail
+from log import log
+from progress import processbar3
 
 header = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -80,11 +82,11 @@ if __name__ == '__main__':
                 result = get_text(item.get('name'), item.get('domain_name'), item.get('url'), item.get('latest_chapter'))
                 if result:
                     item['latest_chapter'] = result
-                print('%s 检查完毕' % item.get('name'))
-            print(data)
+                log.info('%s 检查完毕。。。' % item.get('name'))
 
         with open('story.json', mode='w', encoding='utf-8')as f:
             f.write(json.dumps(data))
-        print("全部检查完毕")
-        print("---" * 20)
-        time.sleep(10*60)
+            log.info('json更新完毕。。。')
+        log.info('全部检查完毕')
+        log.info("---" * 20)
+        processbar3(10*60)

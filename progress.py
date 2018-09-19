@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 @File    : progress.py
-@Author  : HaoQiangJian
+@Author  : HaoQ iangJian
 @Site    : 
 @Time    : 18-9-17 下午1:26
 @Version : 
@@ -57,7 +57,7 @@ def processbar2():
     pbar.finish()
 
 
-def processbar3():
+def processbar3(total):
     """
     方法三: progressbar
     :return:  Progress: 100% |###############| Elapsed Time: 0:00:01 Time: 0:00:01 953.91  B/s
@@ -71,10 +71,10 @@ def processbar3():
     """
     widgets = ['Progress: ', Percentage(), ' ', Bar('#'), ' ', Timer(),
                ' ', ETA(), ' ', FileTransferSpeed()]
-    pbar = ProgressBar(widgets=widgets, maxval=10 * total).start()
+    pbar = ProgressBar(widgets=widgets, maxval=total).start()
     for i in range(total):
         # do something
-        pbar.update(10 * i + 1)
+        pbar.update(i + 1)
         dosomework()
     pbar.finish()
 
@@ -127,9 +127,9 @@ if __name__ == '__main__':
     # processbar0()
     # processbar1()
     # processbar2()
-    processbar3()
+    processbar3(60)
 
-    tqdm1()
+    # tqdm1()
     # tqdm2()
     # tqdm3()
     # tqdm4()
