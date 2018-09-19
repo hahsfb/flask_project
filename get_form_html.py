@@ -89,4 +89,4 @@ if __name__ == '__main__':
             log.info('json更新完毕。。。')
         log.info('全部检查完毕')
         log.info("---" * 20)
-        processbar3(10*60)
+        log.info(processbar3(10*60))
