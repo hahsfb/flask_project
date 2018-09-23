@@ -16,7 +16,7 @@ header = {
     'Connection': 'keep-alive',
     'Cookie': '__jsluid=2f69fa9c6e3e78aea14586c79e354cc1',
     'Host': 'm.booktxt.net',
-    'If-Modified-Since': 'Sun, 09 Sep 2018 03:58:10 GMT',
+    'If-Modified-Since': 'Sun, 23 Sep 2018 03:58:10 GMT',
     'If-None-Match': 'W/"e7d8ab52f147d41:0"',
     'Upgrade-Insecure-Requests': '1',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
