@@ -19,15 +19,6 @@ root
 ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
 ## 这是/var/lib/mysql权限问题，修改MySQL权限为当前用户
 
-# 安装mysql 方法二
-~$ sudo apt-get install mysql-server
-
-~$ sudo apt install mysql-clien
-
-~$ sudo apt install libmysqlclient-dev
-
-~$ mysql -uroot -p
-
 sudo chown -R xxx:xxx /var/lib/mysql
 ###### xxx为当前的用户名以及所属组 
 ## 重启MySQL服务
@@ -60,6 +51,17 @@ owners.
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql>
+
+
+# 安装mysql 方法二
+~$ sudo apt-get install mysql-server
+
+~$ sudo apt install mysql-clien
+
+~$ sudo apt install libmysqlclient-dev
+
+~$ mysql -uroot -p
+
 
 
 
