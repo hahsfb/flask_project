@@ -1,6 +1,6 @@
 # flask_project
 
-# 安装mysql
+# 安装mysql 方法一
 ## 1.下载MySQL的源
 wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm
 
@@ -18,6 +18,12 @@ mysql -uroot -p
 root
 ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
 ## 这是/var/lib/mysql权限问题，修改MySQL权限为当前用户
+
+# 安装mysql 方法二
+> sudo apt-get install mysql-server
+> sudo apt install mysql-clien
+> sudo apt install libmysqlclient-dev
+> mysql -uroot -p
 
 sudo chown -R xxx:xxx /var/lib/mysql
 ###### xxx为当前的用户名以及所属组 
