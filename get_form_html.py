@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from send_email import mail
 from log import log
 from progress import processbar3
+from ddBot import seng_message_dingding
 
 header = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -40,10 +41,11 @@ def get_text(name, domain_name, story_addr, latest_chapter):
             # 1.获取url网页内容
             title, content = text_detail(domain_name + single)
             # 2.发送邮件
-            ret = mail(name, title, content)
-            # ret = True
+            # ret = mail(name, title, content)
+            ret = True
             if ret:
                 new_latest_chapter = single
+                seng_message_dingding(title)
                 print("邮件发送成功")
             else:
                 print("邮件发送失败")

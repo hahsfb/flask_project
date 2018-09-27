@@ -30,17 +30,29 @@ class MulThreadDownload(threading.Thread):
         self.download()
 
 
-if __name__ == "__main__":
+def file_download(filename):
+    # 流式读取
+    store_path = './upload/%s' % filename
+    with open(store_path, 'rb') as target_file:
+        while True:
+            chunk = target_file.read(20 * 1024 * 1024)  # 每次读取20M
+            if not chunk:
+                break
+            yield chunk
+    # return Response(send_chunk(), content_type='application/octet-stream')
+
+
+def down_method1(url):
     # url = sys.argv[1]
-    url = 'file:///F:/%E8%BF%85%E9%9B%B7%E4%B8%8B%E8%BD%BD/480P_600K_115462101.mp4'
+    # url = 'https://cd.phncdn.com/videos/201803/13/157946062/720P_1500K_157946062.mp4?MXZP8MO0rVNukDSdD_-CfZVXE21X50L7JcqZ2onC-5xLdgKgc6OYSXLstwcEgADJe86zI15ifUlll1U9uV90gOqE0FjrfyG7409801yUXyyEYfCly7sxKDHhVMuuP4xQ1ohN5d1Ly2MbodKXHWUhENJJa1rhPtiSWMcb4Tr35rlgfACxke_PoEftfDgP8QBjd3kLB77iYr-_'
     # 获取文件的大小和文件名
-    filename = url.split('/')[-1]
-    # filename = 'test.jpg'
+    # filename = url.split('/')[-1]
+    filename = '480P_600K_110031752.mp4'
     filesize = int(requests.head(url).headers['Content-Length'])
     print("%s filesize:%s" % (filename, filesize))
 
     # 线程数
-    threadnum = 4
+    threadnum = 20
     # 信号量，同时只允许3个线程运行
     threading.BoundedSemaphore(threadnum)
     # 默认3线程现在，也可以通过传参的方式设置线程数
@@ -74,3 +86,23 @@ if __name__ == "__main__":
 
         for i in mtd_list:
             i.join()
+
+
+def down_method2(url):
+    import requests
+    # url = "http://hjwachhy.site/game/only_v1.1.1.apk"
+    path = "./download/xx.mp4"
+    r = requests.get(url)
+    print('ok')
+    with open(path, "wb") as f:
+        f.write(r.content)
+    f.close()
+
+
+if __name__ == "__main__":
+    url = 'https://cd.phncdn.com/videos/201808/12/178253991/720P_1500K_178253991.mp4?GpJFspWZMHs75c_dAxIr0OvYmZ_LWE9d5TUfHt4inlMCdrUC6f1L_b8DGn1wCx0PWIIlsQQKcSlsZbIuAhcsMbhLlanDcWKrknEryKkmj1edQfMRGlopZKdtOPhdakUnAM2Wc4OMapjOJCfLcTvYP5UtgcqrvsGdI5ESpOm7IpboXeMNgD48q4VeXlFme-JO9tziwGYM8jtUEw'
+
+    down_method1(url)
+    # down_method2(url)
+    # file_download(url)
+
