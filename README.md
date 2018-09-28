@@ -1,6 +1,6 @@
 # flask_project
 
-# 安装mysql
+# 安装mysql 方法一
 ## 1.下载MySQL的源
 wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm
 
@@ -51,6 +51,17 @@ owners.
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql>
+
+
+# 安装mysql 方法二
+~$ sudo apt-get install mysql-server
+
+~$ sudo apt install mysql-clien
+
+~$ sudo apt install libmysqlclient-dev
+
+~$ mysql -uroot -p
+
 
 
 
