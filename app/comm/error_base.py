@@ -6,7 +6,6 @@
 # @File    : error_base.py
 from werkzeug.exceptions import HTTPException
 from flask import json
-from app.cli.comm.log import *
 
 
 class APIException(HTTPException):

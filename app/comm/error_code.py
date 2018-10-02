@@ -4,7 +4,6 @@
 # @Author  : Nikky
 # @Site    : 
 # @File    : error_code.py
-from app.cli.comm.error_base import *
 
 
 class ParameFail(APIException):

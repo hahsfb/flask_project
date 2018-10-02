@@ -8,7 +8,7 @@
 @Version :
 """
 import os
-from app.cli.setting import *
+from app.setting import *
 import time
 from logzero import logging, setup_logger
 

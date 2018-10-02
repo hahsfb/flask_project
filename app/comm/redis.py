@@ -10,7 +10,7 @@
 
 from redis import StrictRedis
 import pickle
-from app.cli.setting import REDIS_DB, REDIS_HOST, REDIS_PORT, REDIS_PWD
+from app.setting import REDIS_DB, REDIS_HOST, REDIS_PORT, REDIS_PWD
 
 
 class Redis:

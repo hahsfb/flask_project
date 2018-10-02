@@ -3,10 +3,10 @@
 import requests
 import json
 from bs4 import BeautifulSoup
-from app.cli.comm.send_email import mail
-from app.cli.comm.log import Log
-from app.cli.comm.progress import processbar3
-from app.cli.comm.ddBot import seng_message_dingding
+from app.comm.send_email import mail
+from app.comm.log import Log
+from app.comm.progress import processbar3
+from app.comm.ddBot import seng_message_dingding
 
 header = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',

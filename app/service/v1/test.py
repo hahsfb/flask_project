@@ -10,9 +10,8 @@
 import json
 from . import test
 from flask import jsonify
-from app.cli.comm.get_form_html import get_text
-from app.cli.comm.log import Log
-from app.cli.comm.progress import processbar3
+from app.comm.get_form_html import get_text
+from app.comm.log import Log
 
 
 @test.route('/v1/checkOrderExist', methods=['GET', 'POST'])

@@ -7,11 +7,10 @@
 from flask import Flask
 from flask import Flask as New_Flask
 from flask.json import JSONEncoder as _JSONEncoder
-from datetime import date, timedelta
+from datetime import date
 from decimal import *
-from os import urandom
-from app.cli.service.v1.test import test
-# from app.cli.models import db
+from app.service.v1.test import test
+# from app.app.models import db
 
 
 class JSONEncoder(_JSONEncoder):
@@ -49,7 +48,7 @@ def migrations_table(app):
     :return:
     '''
     # 商户端迁移
-    # from app.cli.models import db
+    # from app.app.models import db
     # db.init_app(app=app)
 
 
@@ -59,7 +58,7 @@ def create_app():
     :return:
     '''
     app = Flask(__name__)
-    app.config.from_object('app.cli.setting')
+    app.config.from_object('app.setting')
 
     # session配置 加密:urandom(24) 有效时间:15分钟
     # app.config['SECRET_KEY'] = urandom(24)

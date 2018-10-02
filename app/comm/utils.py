@@ -7,9 +7,8 @@
 @Time    : 18-9-20 下午12:03
 @Version : 
 """
-import hashlib
 import string, random
-from app.cli.comm.log import Log
+from app import Log
 
 
 def true_return(data='', msg='请求成功', code=200):

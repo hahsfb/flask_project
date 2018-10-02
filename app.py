@@ -5,20 +5,20 @@
 # @Site    :
 # @File    : run.py
 
-from app.cli.run import create_app
+from app.run import create_app
 from werkzeug.exceptions import HTTPException
-from app.cli.comm.error_code import APIException
+from app.comm.error_base import APIException
 from flask import request
-from app.cli.comm.log import Log
+from app.comm.log import Log
 from flask_apscheduler import APScheduler
-from app.cli.service.v1.test import get_for_html
+from app.service.v1.test import get_for_html
 
 
 # create scheduler
 scheduler=APScheduler()
 
 app = create_app()
-app.config.from_object('app.cli.setting')
+app.config.from_object('app.setting')
 
 
 @app.errorhandler(Exception)

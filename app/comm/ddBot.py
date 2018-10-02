@@ -1,5 +1,5 @@
 import requests
-from app.cli.setting import DINGDING_MESSAGE
+from app.setting import DINGDING_MESSAGE
 
 
 def seng_message_dingding(title):
