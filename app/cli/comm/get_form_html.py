@@ -2,12 +2,11 @@
 # -*- coding: UTF-8 -*-
 import requests
 import json
-import time
 from bs4 import BeautifulSoup
-from send_email import mail
-from log import log
-from progress import processbar3
-from ddBot import seng_message_dingding
+from app.cli.comm.send_email import mail
+from app.cli.comm.log import Log
+from app.cli.comm.progress import processbar3
+from app.cli.comm.ddBot import seng_message_dingding
 
 header = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -85,11 +84,11 @@ if __name__ == '__main__':
                 result = get_text(item.get('name'), item.get('domain_name'), item.get('url'), item.get('latest_chapter'))
                 if result:
                     item['latest_chapter'] = result
-                log.info('%s 检查完毕。。。' % item.get('name'))
+                Log.info('%s 检查完毕。。。' % item.get('name'))
 
         with open('story.json', mode='w', encoding='utf-8')as f:
             f.write(json.dumps(data))
-            log.info('json更新完毕。。。')
-        log.info('全部检查完毕')
-        log.info("---" * 20)
-        log.info(processbar3(10*60))
+            Log.info('json更新完毕。。。')
+        Log.info('全部检查完毕')
+        Log.info("---" * 20)
+        Log.info(processbar3(10*60))

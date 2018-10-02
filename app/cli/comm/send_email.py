@@ -6,7 +6,6 @@ from email.mime.text import MIMEText
 from email.utils import formataddr
 from email.header import Header
 import requests
-# import urllib2
 
 my_sender = 'haohsfb@126.com'  # 发件人邮箱账号
 my_pass = 'hao521912'  # 发件人邮箱密码

@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 2018/7/8 上午1:18
-# @Author  : Nikky
-# @Site    : 
-# @File    : log.py
+"""
+@File    : redis.py
+@Author  : HaoQiangJian
+@Site    :
+@Time    : 18-9-20 下午12:03
+@Version :
+"""
 import os
+from app.cli.setting import *
 import time
 from logzero import logging, setup_logger
 
-LOGS_DIR = "./logData/"
 
-
-class log:
+class Log:
 
     @staticmethod
     def info(message):
@@ -24,7 +26,6 @@ class log:
         if not message:
             message = ""
         logger_obj.info(message)
-
 
     @staticmethod
     def debug(message):

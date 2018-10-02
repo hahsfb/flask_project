@@ -1,6 +1,5 @@
 import requests
-
-DINGDING_MESSAGE = 'https://oapi.dingtalk.com/robot/send?access_token=e7eee758ba35c26681c215ac650f972b95614ade270e6984f5e2759310ab9ea6'
+from app.cli.setting import DINGDING_MESSAGE
 
 
 def seng_message_dingding(title):
@@ -10,7 +9,6 @@ def seng_message_dingding(title):
              "content": title
          }
      }
-
     requests.post(DINGDING_MESSAGE, json=data)
 
 
