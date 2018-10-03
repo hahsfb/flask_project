@@ -21,7 +21,7 @@ def check_order_exist():
 
 @test.route('/get', methods=['GET'])
 def get_ddd():
-    with open('story.json', mode='r', encoding='utf-8')as f:
+    with open('./story.json', mode='r', encoding='utf-8')as f:
         data = json.load(f)
         for item in data.get('data'):
             result = get_text(item.get('name'), item.get('domain_name'), item.get('url'), item.get('latest_chapter'))
@@ -29,7 +29,7 @@ def get_ddd():
                 item['latest_chapter'] = result
             Log.info('%s 检查完毕。。。' % item.get('name'))
 
-    with open('story.json', mode='w', encoding='utf-8')as f:
+    with open('./story.json', mode='w', encoding='utf-8')as f:
         f.write(json.dumps(data))
         Log.info('json更新完毕。。。')
     Log.info('全部检查完毕')
@@ -38,7 +38,7 @@ def get_ddd():
 
 
 def get_for_html():
-    with open('story.json', mode='r', encoding='utf-8')as f:
+    with open('./story.json', mode='r', encoding='utf-8')as f:
         data = json.load(f)
         for item in data.get('data'):
             result = get_text(item.get('name'), item.get('domain_name'), item.get('url'), item.get('latest_chapter'))
@@ -46,7 +46,7 @@ def get_for_html():
                 item['latest_chapter'] = result
             Log.info('%s 检查完毕。。。' % item.get('name'))
 
-    with open('story.json', mode='w', encoding='utf-8')as f:
+    with open('./story.json', mode='w', encoding='utf-8')as f:
         f.write(json.dumps(data))
         Log.info('json更新完毕。。。')
     Log.info('全部检查完毕')

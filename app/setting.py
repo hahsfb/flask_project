@@ -26,7 +26,7 @@ REDIS_EX    = 24 * 60 * 60
 # REDIS_URL = "redis://:{}@{}:{}/{}".format(REDIS_PWD, REDIS_HOST, REDIS_PORT, REDIS_DB)
 
 
-SLEEP_TIME = 5 * 60
+SLEEP_TIME = 1 * 60
 LOGS_DIR = "./logData/"
 
 DINGDING_MESSAGE = 'https://oapi.dingtalk.com/robot/send?access_token=e7eee758ba35c26681c215ac650f972b95614ade270e6984f5e2759310ab9ea6'
