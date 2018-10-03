@@ -28,7 +28,7 @@ REDIS_EX    = 24 * 60 * 60
 
 SLEEP_TIME = 1 * 60
 LOGS_DIR = "/home/ubuntu/data/flask_project/logData/"
-# FILE_PATH = "/home/ubuntu/data/flask_project/story.json"
-FILE_PATH = "./story.json"
+FILE_PATH = "/home/ubuntu/data/flask_project/story.json"
+# FILE_PATH = "./story.json"
 
 DINGDING_MESSAGE = 'https://oapi.dingtalk.com/robot/send?access_token=e7eee758ba35c26681c215ac650f972b95614ade270e6984f5e2759310ab9ea6'
