@@ -6,6 +6,7 @@
 # @File    : error_base.py
 from werkzeug.exceptions import HTTPException
 from flask import json
+from .log import Log
 
 
 class APIException(HTTPException):
@@ -29,7 +30,7 @@ class APIException(HTTPException):
             msg=self.msg,
             data=self.data
         )
-        log.info(body)
+        Log.info(body)
         text = json.dumps(body)
 
         return text

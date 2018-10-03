@@ -34,7 +34,7 @@ def get_ddd():
         Log.info('json更新完毕。。。')
     Log.info('全部检查完毕')
     Log.info("---" * 20)
-    # Log.info(processbar3(10*60))
+    return jsonify({"data": "全部检查完毕"})
 
 
 def get_for_html():

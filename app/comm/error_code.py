@@ -4,7 +4,7 @@
 # @Author  : Nikky
 # @Site    : 
 # @File    : error_code.py
-
+from .error_base import APIException
 
 class ParameFail(APIException):
     code = 401
