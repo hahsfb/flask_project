@@ -53,5 +53,6 @@ if __name__ == '__main__':
     scheduler.init_app(app)
     # scheduler.add_job(func=get_for_html, args=(app,), trigger='cron', hour='00', minute='00', second='00', id='job_1')
     scheduler.add_job(func=get_for_html, trigger='interval', seconds=app.config['SLEEP_TIME'], id='job_2')
+    Log.info('scheduler开始。。。。')
     scheduler.start()
     app.run(host='0.0.0.0', port=5000, debug=app.config['DEBUG'])
