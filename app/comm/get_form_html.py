@@ -40,15 +40,15 @@ def get_text(name, domain_name, story_addr, latest_chapter):
             # 1.获取url网页内容
             title, content = text_detail(domain_name + single)
             # 2.发送邮件
-            print(name, title)
+            Log.info(title)
             ret = mail(name, title, content)
             # ret = True
             if ret:
                 new_latest_chapter = single
                 seng_message_dingding(title)
-                print("邮件发送成功")
+                Log.info("邮件发送成功")
             else:
-                print("邮件发送失败")
+                Log.info("邮件发送失败")
     return new_latest_chapter
 
 

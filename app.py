@@ -19,6 +19,7 @@ scheduler=APScheduler()
 
 app = create_app()
 app.config.from_object('app.setting')
+app.config['SCHEDULER_API_ENABLED'] = True
 
 
 @app.errorhandler(Exception)
