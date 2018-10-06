@@ -26,7 +26,7 @@ REDIS_EX    = 24 * 60 * 60
 # REDIS_URL = "redis://:{}@{}:{}/{}".format(REDIS_PWD, REDIS_HOST, REDIS_PORT, REDIS_DB)
 
 
-SLEEP_TIME = 1 * 60
+SLEEP_TIME = 5 * 60
 LOGS_DIR = "/home/ubuntu/data/flask_project/logData/"
 FILE_PATH = "/home/ubuntu/data/flask_project/story.json"
 # FILE_PATH = "./story.json"
