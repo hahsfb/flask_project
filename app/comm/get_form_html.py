@@ -29,7 +29,7 @@ def get_text(name, domain_name, story_addr, latest_chapter):
     new_latest_chapter = ''
     soup = BeautifulSoup(encode_content, 'html.parser')
     temp_list = []
-    for link in soup.select(".directoryArea > p > a", limit=5):
+    for link in soup.select(".directoryArea > p > a", limit=9):
         if link.get('href') != latest_chapter:
             temp_list.append(link.get('href'))
         elif link.get('href') == latest_chapter:

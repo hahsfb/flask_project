@@ -10,12 +10,12 @@ from werkzeug.exceptions import HTTPException
 from app.comm.error_base import APIException
 from flask import request
 from app.comm.log import Log
-from flask_apscheduler import APScheduler
-from app.service.v1.test import get_for_html
+# from flask_apscheduler import APScheduler
+# from app.service.v1.test import get_for_html
 
 
 # create scheduler
-scheduler=APScheduler()
+# scheduler=APScheduler()
 
 app = create_app()
 app.config.from_object('app.setting')
@@ -51,9 +51,9 @@ def after_request(response):
 
 
 if __name__ == '__main__':
-    scheduler.init_app(app)
-    # scheduler.add_job(func=get_for_html, args=(app,), trigger='cron', hour='00', minute='00', second='00', id='job_1')
-    scheduler.add_job(func=get_for_html, trigger='interval', seconds=app.config['SLEEP_TIME'], id='job_2')
-    Log.info('scheduler开始。。。。')
-    scheduler.start()
+    # scheduler.init_app(app)
+    # # scheduler.add_job(func=get_for_html, args=(app,), trigger='cron', hour='00', minute='00', second='00', id='job_1')
+    # scheduler.add_job(func=get_for_html, trigger='interval', seconds=app.config['SLEEP_TIME'], id='job_2')
+    # Log.info('scheduler开始。。。。')
+    # scheduler.start()
     app.run(host='0.0.0.0', port=5000, debug=app.config['DEBUG'])
